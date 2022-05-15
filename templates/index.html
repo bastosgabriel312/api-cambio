@@ -1,0 +1,64 @@
+{%include 'head.html'%}
+
+<body style='margin: 0;'>
+
+<div class="container">
+    <form class="form" method="POST" style="text-align: center">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm">
+                    <input type="text" class="form-control" name="moeda1" min="0" id="inputMoeda1" required>
+                </div>
+                <div class="col-sm">
+                    <select class="form-select" name="tipoMoeda1" id="tipoMoeda1">
+                        <option selected>Selecione uma moeda</option>
+                            <option value="BRL"> Real Brasileiro (BRL) </option>
+                            <option value="USD"> Dolar Americano (USD) </option>
+                            <option value="EUR"> Euro (EUR) </option>
+                            <option value="CAD"> Dólar Canadense (CAD) </option>
+                            <option value="ARS"> Peso Argentino (ARS)</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    <input type="number" class="form-control" name="moeda2" min="0" id="inputMoeda2" disabled>
+                </div>
+                  <div class="col-sm">
+                    <select class="form-select" name="tipoMoeda2"  id="tipoMoeda2" required>
+                        <option selected value="">Selecione uma moeda</option>
+                            <option value="BRL"> Real Brasileiro (BRL) </option>
+                            <option value="USD"> Dolar Americano (USD) </option>
+                            <option value="EUR"> Euro (EUR) </option>
+                            <option value="CAD"> Dólar Canadense (CAD) </option>
+                            <option value="ARS"> Peso Argentino (ARS)</option>
+                    </select>
+                  </div>
+            </div>
+            <div class="row">
+            <div class="col-sm">
+                <input type="submit" class="btn btn-primary mb-3">
+            </div>
+          </div>
+        </div>
+    </form>
+</div>
+
+{% if 'valorCompra' in cotacao %}
+
+<div class='container'>
+    <p id="valorCompra">Valor Compra: {{cotacao['valorCompra']}}</p>
+    <p id="valorVenda">Valor Venda: {{cotacao['valorVenda']}}</p>
+    <p id="dataCotacao">Data da Cotação: {{cotacao['dataCotacao']}}</p>
+</div>
+{% else %}
+    {% if 'message' in cotacao%}
+    <div class='container'>
+        <p id="message">{{cotacao['message']}}</p>
+    </div>
+    {% endif %}
+{% endif %}
+
+
+</body>
+{%include 'footer.html'%}
