@@ -2,7 +2,7 @@
 
 ## Tecnologias utilizadas (Docs)
   * Python 3 (https://docs.python.org/3.8/)
-  * API Here (https://docs.awesomeapi.com.br/api-de-moedas)
+  * API Awesome (https://docs.awesomeapi.com.br/api-de-moedas)
   * Flask (https://flask.palletsprojects.com/)
   
 ## Awesome API
