@@ -24,7 +24,6 @@ class Cambio():
             return {'message':"Não foram localizadas informações dessa cotação"}
     
     def __converteParaDinheiro(self,valor):
-        print(valor)
         return  str(valor).replace('.',',')
 
 
@@ -33,8 +32,18 @@ class Cambio():
         if 'message' not in retorno:
             valorCompra = self.__converteParaDinheiro(float(retorno['bid']) * quantidade)
             valorVenda = self.__converteParaDinheiro(float(retorno['ask']) * quantidade)
+            maximoDia = self.__converteParaDinheiro(float(retorno['high']))
+            minimoDia = self.__converteParaDinheiro(float(retorno['low']))
+            porcentagemVariacao = self.__converteParaDinheiro(float(retorno['pctChange']))+'%'
+            variacao = self.__converteParaDinheiro(float(retorno['varBid']))
             dataCotacao = f"{datetime.strptime(retorno['create_date'], '%Y-%m-%d %H:%M:%S').date():'%d/%m/%Y'}"
-            return { 'valorCompra': valorCompra,'valorVenda':valorVenda, 'dataCotacao':dataCotacao } 
+            return { 'valorCompra': valorCompra,
+                      'valorVenda':valorVenda, 
+                      'dataCotacao':dataCotacao,
+                      'maximoDia':maximoDia,
+                      'minimoDia': minimoDia,
+                      'variacao':variacao,
+                      'porcentagemVariacao': porcentagemVariacao} 
         else:
             return retorno
 

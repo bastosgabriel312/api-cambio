@@ -2,15 +2,15 @@
 
 <body style='margin: 0;'>
 
-<div class="container">
+<div class="container" style="margin-top: 2vmin;" >
     <form class="form" method="POST" style="text-align: center">
         <div class="container">
-            <div class="row">
+            <div class="row" >
                 <div class="col-sm">
-                    <input type="text" class="form-control" name="moeda1" min="0" id="inputMoeda1" required>
+                    <input type="number" class="form-control" name="moeda1" min="0" id="inputMoeda1" placeholder="Insira o valor para conversão" required>
                 </div>
                 <div class="col-sm">
-                    <select class="form-select" name="tipoMoeda1" id="tipoMoeda1">
+                    <select class="form-select" name="tipoMoeda1" id="tipoMoeda1" required>
                         <option selected>Selecione uma moeda</option>
                             <option value="BRL"> Real Brasileiro (BRL) </option>
                             <option value="USD"> Dolar Americano (USD) </option>
@@ -20,7 +20,7 @@
                     </select>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" style="margin-top: 1vmin;">
                 <div class="col-sm">
                     <input type="number" class="form-control" name="moeda2" min="0" id="inputMoeda2" disabled>
                 </div>
@@ -36,8 +36,8 @@
                   </div>
             </div>
             <div class="row">
-            <div class="col-sm">
-                <input type="submit" class="btn btn-primary mb-3">
+            <div class="col-sm" style="margin-top: 2vmin;">
+                <input type="submit" class="btn btn-primary mb-3" value="Converter">
             </div>
           </div>
         </div>
@@ -47,9 +47,17 @@
 {% if 'valorCompra' in cotacao %}
 
 <div class='container'>
+    <h4>Resultado da Conversão</h4>
     <p id="valorCompra">Valor Compra: {{cotacao['valorCompra']}}</p>
     <p id="valorVenda">Valor Venda: {{cotacao['valorVenda']}}</p>
-    <p id="dataCotacao">Data da Cotação: {{cotacao['dataCotacao']}}</p>
+    <hr>
+    <h4>Informações de cotação</h4>
+    <p id="dataCotacao">Última atualização: {{cotacao['dataCotacao']}}</p>
+    <p id="maximoDia">Máximo (dia): {{cotacao['maximoDia']}}</p>
+    <p id="minimoDia">Mínimo: {{cotacao['minimoDia']}}</p>
+    <p id="variacao">Variação: {{cotacao['variacao']}}</p>
+    <p id="porcentagemVariacao">Porcentagem de Variação: {{cotacao['porcentagemVariacao']}}</p>
+    
 </div>
 {% else %}
     {% if 'message' in cotacao%}

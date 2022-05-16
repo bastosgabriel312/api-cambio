@@ -8,7 +8,7 @@ def index():
     cb = Cambio()
     moedas = cb.moedasDisponiveis()
     if request.method == 'POST':
-        cotacao = cb.trataCotacao(request.form['tipoMoeda1'],request.form['tipoMoeda2'],int(request.form['moeda1']))
+        cotacao = cb.trataCotacao(request.form['tipoMoeda1'],request.form['tipoMoeda2'],float(request.form['moeda1']))
         return render_template('index.html',moedas = moedas, cotacao = cotacao)
     return render_template('index.html',moedas = moedas)
 
