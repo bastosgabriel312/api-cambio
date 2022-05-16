@@ -47,17 +47,18 @@
 {% if 'valorCompra' in cotacao %}
 
 <div class='container'>
-    <h4>Resultado da Conversão</h4>
+    <h4>Resultado da Conversão:</h4>
     <p id="valorCompra">Valor Compra: {{cotacao['valorCompra']}}</p>
     <p id="valorVenda">Valor Venda: {{cotacao['valorVenda']}}</p>
     <hr>
     <h4>Informações de cotação</h4>
     <p id="dataCotacao">Última atualização: {{cotacao['dataCotacao']}}</p>
     <p id="maximoDia">Máximo (dia): {{cotacao['maximoDia']}}</p>
-    <p id="minimoDia">Mínimo: {{cotacao['minimoDia']}}</p>
+    <p id="minimoDia">Mínimo (dia): {{cotacao['minimoDia']}}</p>
     <p id="variacao">Variação: {{cotacao['variacao']}}</p>
     <p id="porcentagemVariacao">Porcentagem de Variação: {{cotacao['porcentagemVariacao']}}</p>
-    
+    <hr>
+
 </div>
 {% else %}
     {% if 'message' in cotacao%}
@@ -66,7 +67,9 @@
     </div>
     {% endif %}
 {% endif %}
-
+<div class='container'>
+{%include 'tabela.html'%}
+</div>
 
 </body>
 {%include 'footer.html'%}
