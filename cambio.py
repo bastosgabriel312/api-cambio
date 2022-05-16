@@ -47,7 +47,7 @@ class Cambio():
             minimoDia = self.__converteParaDinheiro(float(retorno['low']))
             porcentagemVariacao = self.__converteParaDinheiro(float(retorno['pctChange']))+'%'
             variacao = self.__converteParaDinheiro(float(retorno['varBid']))
-            dataCotacao = f"{datetime.strptime(retorno['create_date'], '%Y-%m-%d %H:%M:%S').date():'%d/%m/%Y'}"
+            dataCotacao = f"{datetime.strptime(retorno['create_date'], '%Y-%m-%d %H:%M:%S').date():'%d/%m/%Y'}".replace("'","")
             return { 'nome':nome,
                       'valorCompra': valorCompra,
                       'valorVenda':valorVenda,
